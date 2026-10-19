@@ -4,7 +4,7 @@
 
 **Natural Writing. Faithful Meaning.**
 
-Skill v1.0 · DSH plugin v1.0.0 · English / 中文 / 日本語 · By [01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
+Skill v1.0 · DSH plugin v1.1.0 · English / 中文 / 日本語 · By [01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
 
 An agent skill and installable DeepSeek Harness plugin for academic and professional writing.
 Remove mechanical phrasing and unnecessary padding while keeping facts, citations,
@@ -31,6 +31,11 @@ In DSH Desktop, add `github:01NGVI-QINGYI/no-ai-style` under **Settings → Plug
 ```bash
 dsh plugin --profile web add github:01NGVI-QINGYI/no-ai-style
 ```
+
+`--profile` is the profile you actually run: `web` for the `dsh web` build,
+`desktop` for the desktop app. The plugin registers its own skill provider, so
+the skill reaches every session in that profile without touching your project,
+custom, or user skill roots.
 
 Restart DSH to load the plugin. To install it as a regular agent skill instead,
 run this in your Deepseek Harness project; it installs to `.agents/skills`:
@@ -72,22 +77,20 @@ Manual installation: copy `skills/no-ai-style/` into your agent’s skills direc
 Ask your agent in plain language. Paste the text or provide a file path:
 
 ```text
-Use no-ai-style to lightly edit docs/product.md.
-Keep specifications, compatibility requirements, and known limitations.
+Use no-ai-style to check.
+Use no-ai-style to edit.
+Use no-ai-style to draft.
 ```
 
-For review without edits:
+Use “check” for a review or a submission-readiness check. If you ask whether it is ready to submit, the agent adds a verdict and any unresolved issues.
 
-```text
-Use no-ai-style in audit mode on docs/product.md. Do not modify the file.
-```
+In DSH, the composer carries a **no ai style** button (⭐ no ai style). Click it and choose Check, Polish, or Draft. Insert adds the localized instruction before your existing draft; Cancel leaves it unchanged. The UI follows DSH’s language; Japanese appears when a Japanese DSH locale is enabled, and other unsupported locales use English. On older DSH releases, insertion is blocked while file or command reference chips are present so they are not lost.
 
 | Mode | What you get |
 | --- | --- |
-| `audit` | Findings and suggestions; source files stay unchanged |
+| `audit` | Findings and suggestions; add a readiness verdict when requested; source files stay unchanged |
 | `revise` | Edited prose within the requested scope |
 | `compose` | A draft based on supplied notes and evidence |
-| `release` | A final readiness check and any unresolved issues |
 
 Light editing is the default. Request a stronger rewrite when needed.
 The skill follows the text’s language and keeps sound passages unchanged.

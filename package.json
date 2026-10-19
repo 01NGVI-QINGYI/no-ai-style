@@ -1,31 +1,57 @@
 {
   "name": "no-ai-style",
-  "version": "1.0.0",
-  "description": "A multilingual prose-editing skill for academic and professional writing.",
+  "version": "1.1.0",
+  "description": "Academic and professional prose editing for DeepSeek Harness: a skill that removes mechanical AI phrasing, defensive hedging and filler while protecting claims, citations, statistics, methodology and limitations, plus a composer button that inserts one of its three modes into the input box.",
   "type": "module",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
   "files": [
     "index.js",
+    "lib/",
     "cordis.patch.yml",
-    "skills",
+    "skills/",
+    "locale/",
     "README.md",
     "README.zh-CN.md",
     "README.ja.md",
     "LICENSE"
   ],
   "dsh": {
+    "engines": {
+      "dsh": ">=0.1.5-rc.3 <0.3.0"
+    },
     "bundle": {
       "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "react",
+        "react-dom"
+      ]
     }
   },
   "keywords": [
     "dsh-plugin",
     "deepseek-harness",
-    "no-ai-style",
+    "skill",
     "writing",
     "academic-writing",
     "prose-editing",
-    "中文写作",
+    "humanize",
+    "anti-ai",
+    "去ai味",
+    "论文润色",
+    "写作润色",
     "日本語文章校正"
   ],
   "repository": {
@@ -35,10 +61,15 @@
   "license": "MIT",
   "author": "01NGVI-QINGYI",
   "peerDependencies": {
-    "@deepseek-ai/dsh-skill-filesystem": ">=0.1.0-rc.6 <0.3.0"
+    "@deepseek-ai/dsh-skill-filesystem": ">=0.1.0-rc.6 <0.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-skill-filesystem": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
       "optional": true
     }
   }
