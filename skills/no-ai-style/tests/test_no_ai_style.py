@@ -147,7 +147,7 @@ class TestCompactGuidance(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.skill = (ROOT / 'SKILL.md').read_text(encoding='utf-8')
-        cls.readme = (ROOT / 'README.md').read_text(encoding='utf-8')
+        cls.readme = (ROOT.parents[1] / 'README.md').read_text(encoding='utf-8')
 
     def test_single_readme_detector_boundary(self):
         self.assertEqual(self.readme.lower().count('ai-detector'), 1)

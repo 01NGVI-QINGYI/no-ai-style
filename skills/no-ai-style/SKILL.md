@@ -41,10 +41,9 @@ Infer the mode from the request; do not ask when intent is clear.
 
 | Mode | Trigger | Allowed work | Deliver |
 | --- | --- | --- | --- |
-| `audit` | inspect, critique, identify problems | Read and report; do not edit source files | Prioritized findings with passages and rationale |
+| `audit` | inspect, critique, identify problems; ready to submit, final check, publish | Read and report; do not edit source files | Prioritized findings; when readiness is requested, add a verdict and unresolved risks |
 | `revise` | polish, humanize, tighten, rewrite, no-ai-style | Edit the authorized passage only | Revised text and a brief change summary |
 | `compose` | draft from notes, tables, findings | Write from given material, marking unknowns | Draft with unresolved-evidence notes if needed |
-| `release` | ready to submit, final check, publish | Check final artifacts; edit only if explicitly authorized | Readiness verdict plus unresolved risks |
 
 If the user requests only a translation, preserve source meaning,
 register, qualifiers, and citations before attempting stylistic
@@ -223,7 +222,9 @@ python3 <skill-dir>/scripts/compare_anchors.py path/to/before.md path/to/after.m
 ## Response contract
 
 - `audit`: compact finding table with impact, evidence from the text,
-  and a suggested action; do not output a secretly edited manuscript.
+  and a suggested action; do not output a secretly edited manuscript. If
+  asked whether an artifact is ready, add `ready`, `ready with reservations`,
+  or `not ready`, followed by unresolved material issues.
 - `revise`: usable revised prose first, then explain only material
   changes; flag any unverifiable claim or fact requiring approval.
 - `compose`: requested draft, followed by explicit open questions.
@@ -232,9 +233,6 @@ python3 <skill-dir>/scripts/compare_anchors.py path/to/before.md path/to/after.m
     author supplies it.
   - `[INTERPRETATION FLAG]` — data present but ambiguous; author
     confirmation is enough to proceed.
-- `release`: state ready, ready with reservations, or not ready;
-  identify unresolved material issues.
-
 For requests to 'remove AI traces' or 'avoid plagiarism', improve clarity and
 original expression; retain attribution and do not disguise copied work
 or optimize for AI-detector evasion.
@@ -247,4 +245,4 @@ or optimize for AI-detector evasion.
 - `references/language-notes.md` — English, Chinese, Japanese conventions.
 - `references/examples.md` — before/after pairs, including CJK, each
   tagged with the gate that triggered the edit.
-- `references/release-check.md` — submission and artifact QA.
+- `references/release-check.md` — submission-readiness checks within `audit`.
