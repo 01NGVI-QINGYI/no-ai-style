@@ -1,6 +1,6 @@
 {
   "name": "no-ai-style",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Academic and professional prose editing for DeepSeek Harness: a skill that removes mechanical AI phrasing, defensive hedging and filler while protecting claims, citations, statistics, methodology and limitations, plus a composer button that inserts one of its three modes into the input box.",
   "type": "module",
   "main": "index.js",

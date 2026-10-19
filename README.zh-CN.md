@@ -4,7 +4,7 @@
 
 **自然表达，忠于原意。**
 
-Skill v1.0 · DSH 插件 v1.1.0 · 英语 / 中文 / 日语 · 作者：[01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
+Skill v1.0 · DSH 插件 v1.2.0 · 英语 / 中文 / 日语 · 作者：[01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
 
 用于学术和专业文本的 agent skill，也可作为 DeepSeek Harness 插件安装。减少机械表达和多余铺垫，保留事实、引用、必要限定与作者语气。
 

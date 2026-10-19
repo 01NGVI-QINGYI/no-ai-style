@@ -4,7 +4,7 @@
 
 **Natural Writing. Faithful Meaning.**
 
-Skill v1.0 · DSH plugin v1.1.0 · English / 中文 / 日本語 · By [01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
+Skill v1.0 · DSH plugin v1.2.0 · English / 中文 / 日本語 · By [01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
 
 An agent skill and installable DeepSeek Harness plugin for academic and professional writing.
 Remove mechanical phrasing and unnecessary padding while keeping facts, citations,

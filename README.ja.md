@@ -4,7 +4,7 @@
 
 **自然な文章、原意に忠実な編集。**
 
-Skill v1.0 · DSH プラグイン v1.1.0 · 英語 / 中国語 / 日本語 · 作者：[01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
+Skill v1.0 · DSH プラグイン v1.2.0 · 英語 / 中国語 / 日本語 · 作者：[01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
 
 学術文書や業務文書のための agent skill で、DeepSeek Harness プラグインとしてもインストールできます。
 機械的な表現や不要な前置きを減らし、事実、引用、必要な留保、著者の文体を保ちます。
