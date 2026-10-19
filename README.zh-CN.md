@@ -4,9 +4,9 @@
 
 **自然表达，忠于原意。**
 
-v1.0 · 英语 / 中文 / 日语 · 作者：[01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
+Skill v1.0 · DSH 插件 v1.0.0 · 英语 / 中文 / 日语 · 作者：[01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
 
-用于学术和专业文本的写作 skill。减少机械表达和多余铺垫，保留事实、引用、必要限定与作者语气。
+用于学术和专业文本的 agent skill，也可作为 DeepSeek Harness 插件安装。减少机械表达和多余铺垫，保留事实、引用、必要限定与作者语气。
 
 **修改前：** 为了说明清楚，需要指出的是，该设备配有两个 USB 接口。
 
@@ -24,7 +24,13 @@ npx skills add 01NGVI-QINGYI/no-ai-style --global --agent codex
 
 **Deepseek Harness**
 
-在 Deepseek Harness 项目目录运行，安装到 `.agents/skills`。
+在 DSH Desktop 的 **Settings → Plugins** 中添加 `github:01NGVI-QINGYI/no-ai-style`。也可以在命令行安装：
+
+```bash
+dsh plugin --profile web add github:01NGVI-QINGYI/no-ai-style
+```
+
+重启 DSH 后即可加载插件。如需将它作为普通 agent skill 安装，在 Deepseek Harness 项目目录运行下面命令，安装到 `.agents/skills`：
 
 ```bash
 npx skills add 01NGVI-QINGYI/no-ai-style --agent universal --copy
@@ -56,7 +62,7 @@ npx skills add 01NGVI-QINGYI/no-ai-style
 
 按提示选择其他工具。去掉 `--global` 可安装到当前项目。
 
-手动安装：解压 [v1.0 ZIP](https://github.com/01NGVI-QINGYI/no-ai-style/releases/tag/v1.0)，将完整的 `no-ai-style/` 文件夹复制到所用工具的 skills 目录。
+手动安装：将 `skills/no-ai-style/` 文件夹复制到所用工具的 skills 目录。
 
 ## 使用
 
@@ -85,16 +91,16 @@ npx skills add 01NGVI-QINGYI/no-ai-style
 
 ## 可选检查
 
-需要 Python 3.9+，无第三方依赖。在安装包解压后的父目录运行：
+需要 Python 3.9+，无第三方依赖。在仓库根目录运行：
 
 ```bash
-python3 no-ai-style/scripts/audit_prose.py draft.md --lang auto
-python3 no-ai-style/scripts/compare_anchors.py before.md after.md --format json
+python3 skills/no-ai-style/scripts/audit_prose.py draft.md --lang auto
+python3 skills/no-ai-style/scripts/compare_anchors.py before.md after.md --format json
 ```
 脚本在本地运行，不上传文本。结果需结合上下文判断；未闭合的注释或代码围栏会告警。
 加入 `--strict` 后，缺失证据标记或未闭合格式会返回退出码 1。
 
-本项目旨在改善可读性，不以规避 AI 检测为目标。详细规则见 [SKILL.md](SKILL.md)。
+本项目旨在改善可读性，不以规避 AI 检测为目标。详细规则见 [SKILL.md](skills/no-ai-style/SKILL.md)。
 
 ## 许可证
 

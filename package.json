@@ -1,0 +1,45 @@
+{
+  "name": "no-ai-style",
+  "version": "1.0.0",
+  "description": "A multilingual prose-editing skill for academic and professional writing.",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "skills",
+    "README.md",
+    "README.zh-CN.md",
+    "README.ja.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "no-ai-style",
+    "writing",
+    "academic-writing",
+    "prose-editing",
+    "中文写作",
+    "日本語文章校正"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/01NGVI-QINGYI/no-ai-style.git"
+  },
+  "license": "MIT",
+  "author": "01NGVI-QINGYI",
+  "peerDependencies": {
+    "@deepseek-ai/dsh-skill-filesystem": ">=0.1.0-rc.6 <0.3.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-skill-filesystem": {
+      "optional": true
+    }
+  }
+}

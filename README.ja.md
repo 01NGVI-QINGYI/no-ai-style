@@ -4,10 +4,10 @@
 
 **自然な文章、原意に忠実な編集。**
 
-v1.0 · 英語 / 中国語 / 日本語 · 作者：[01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
+Skill v1.0 · DSH プラグイン v1.0.0 · 英語 / 中国語 / 日本語 · 作者：[01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
 
-学術文書や業務文書のための文章編集 skill です。機械的な表現や不要な前置きを減らし、
-事実、引用、必要な留保、著者の文体を保ちます。
+学術文書や業務文書のための agent skill で、DeepSeek Harness プラグインとしてもインストールできます。
+機械的な表現や不要な前置きを減らし、事実、引用、必要な留保、著者の文体を保ちます。
 
 **編集前：** 明確に説明するために述べておくと、この機器には USB ポートが二つあります。
 
@@ -25,7 +25,13 @@ npx skills add 01NGVI-QINGYI/no-ai-style --global --agent codex
 
 **Deepseek Harness**
 
-Deepseek Harness のプロジェクト内で実行します。`.agents/skills` にインストールされます。
+DSH Desktop の **Settings → Plugins** で `github:01NGVI-QINGYI/no-ai-style` を追加します。CLI からは次のコマンドでインストールできます。
+
+```bash
+dsh plugin --profile web add github:01NGVI-QINGYI/no-ai-style
+```
+
+インストール後に DSH を再起動してください。通常の agent skill として入れる場合は、Deepseek Harness のプロジェクト内で次を実行すると `.agents/skills` にインストールされます。
 
 ```bash
 npx skills add 01NGVI-QINGYI/no-ai-style --agent universal --copy
@@ -57,7 +63,7 @@ npx skills add 01NGVI-QINGYI/no-ai-style
 
 画面の案内に従って選択してください。`--global` を省略すると現在のプロジェクトにインストールします。
 
-手動の場合は [v1.0 ZIP](https://github.com/01NGVI-QINGYI/no-ai-style/releases/tag/v1.0) を展開し、`no-ai-style/` 全体をエージェントの skills ディレクトリにコピーします。
+手動の場合は `skills/no-ai-style/` をエージェントの skills ディレクトリにコピーします。
 
 ## 使い方
 
@@ -87,17 +93,17 @@ no-ai-style の audit モードで docs/product.md を確認してください�
 
 ## 任意の確認
 
-Python 3.9+ が必要です。外部パッケージは不要です。ZIP の展開先の親ディレクトリで実行します。
+Python 3.9+ が必要です。外部パッケージは不要です。リポジトリのルートで実行します。
 
 ```bash
-python3 no-ai-style/scripts/audit_prose.py draft.md --lang auto
-python3 no-ai-style/scripts/compare_anchors.py before.md after.md --format json
+python3 skills/no-ai-style/scripts/audit_prose.py draft.md --lang auto
+python3 skills/no-ai-style/scripts/compare_anchors.py before.md after.md --format json
 ```
 スクリプトはローカルで動作し、本文をアップロードしません。結果は文脈に照らして確認してください。
 未閉鎖のコメントやコードフェンスは警告されます。`--strict` を付けると、根拠不足のマーカーや
 未閉鎖の書式に対して終了コード 1 を返します。
 
-目的は読みやすさの改善であり、AI 検出の回避ではありません。詳細は [SKILL.md](SKILL.md) を参照してください。
+目的は読みやすさの改善であり、AI 検出の回避ではありません。詳細は [SKILL.md](skills/no-ai-style/SKILL.md) を参照してください。
 
 ## ライセンス
 

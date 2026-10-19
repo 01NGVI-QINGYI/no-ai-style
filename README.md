@@ -4,10 +4,11 @@
 
 **Natural Writing. Faithful Meaning.**
 
-v1.0 · English / 中文 / 日本語 · By [01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
+Skill v1.0 · DSH plugin v1.0.0 · English / 中文 / 日本語 · By [01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
 
-An agent skill for academic and professional writing. Remove mechanical phrasing
-and unnecessary padding while keeping facts, citations, uncertainty, and the author’s voice.
+An agent skill and installable DeepSeek Harness plugin for academic and professional writing.
+Remove mechanical phrasing and unnecessary padding while keeping facts, citations,
+uncertainty, and the author’s voice.
 
 **Before:** For clarity, it should be mentioned that the device supports two USB ports.
 
@@ -25,7 +26,14 @@ npx skills add 01NGVI-QINGYI/no-ai-style --global --agent codex
 
 **Deepseek Harness**
 
-Run in your Deepseek Harness project; this installs to `.agents/skills`.
+In DSH Desktop, add `github:01NGVI-QINGYI/no-ai-style` under **Settings → Plugins**. From the CLI, install the plugin with:
+
+```bash
+dsh plugin --profile web add github:01NGVI-QINGYI/no-ai-style
+```
+
+Restart DSH to load the plugin. To install it as a regular agent skill instead,
+run this in your Deepseek Harness project; it installs to `.agents/skills`:
 
 ```bash
 npx skills add 01NGVI-QINGYI/no-ai-style --agent universal --copy
@@ -57,7 +65,7 @@ npx skills add 01NGVI-QINGYI/no-ai-style
 
 Choose your agent when prompted. Omit `--global` for a project installation.
 
-Manual installation: extract the [v1.0 ZIP](https://github.com/01NGVI-QINGYI/no-ai-style/releases/tag/v1.0) and copy the complete `no-ai-style/` folder into your agent’s skills directory.
+Manual installation: copy `skills/no-ai-style/` into your agent’s skills directory.
 
 ## Usage
 
@@ -88,18 +96,18 @@ ambiguous interpretations are marked `[INTERPRETATION FLAG]` for author review.
 
 ## Optional checks
 
-Python 3.9+, no external packages. Run from the extracted ZIP’s parent folder:
+Python 3.9+, no external packages. Run from the repository root:
 
 ```bash
-python3 no-ai-style/scripts/audit_prose.py draft.md --lang auto
-python3 no-ai-style/scripts/compare_anchors.py before.md after.md --format json
+python3 skills/no-ai-style/scripts/audit_prose.py draft.md --lang auto
+python3 skills/no-ai-style/scripts/compare_anchors.py before.md after.md --format json
 ```
 The scripts run locally and do not upload text. Findings need contextual review;
 unclosed comments or code fences produce warnings. Add `--strict` to return
 exit code 1 for missing-evidence markers or unclosed markup.
 
 The goal is readable, faithful prose, not AI-detector evasion.
-Detailed rules are in [SKILL.md](SKILL.md).
+Detailed rules are in [SKILL.md](skills/no-ai-style/SKILL.md).
 
 ## License
 
