@@ -86,6 +86,12 @@ Use “check” for a review or a submission-readiness check. If you ask whether
 
 In DSH, the composer carries a **no ai style** button (⭐ no ai style). Click it and choose Check, Polish, or Draft. Insert adds the localized instruction before your existing draft; Cancel leaves it unchanged. The UI follows DSH’s language; Japanese appears when a Japanese DSH locale is enabled, and other unsupported locales use English. On older DSH releases, insertion is blocked while file or command reference chips are present so they are not lost.
 
+<p align="center">
+  <img src="docs/images/panel-en.png" width="330" alt="The mode panel in the English interface: Check, Polish, Draft, with Cancel and Insert into input box">
+  <img src="docs/images/panel-zh.png" width="330" alt="The mode panel in the Chinese interface: 检查、润色、起草，底部为取消与插入到输入框">
+</p>
+
+
 | Mode | What you get |
 | --- | --- |
 | `audit` | Findings and suggestions; add a readiness verdict when requested; source files stay unchanged |

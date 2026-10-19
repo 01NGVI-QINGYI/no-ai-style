@@ -80,6 +80,12 @@ npx skills add 01NGVI-QINGYI/no-ai-style
 
 在 DSH 输入框里有一个 **no ai style** 按钮（⭐ no ai style）。点击后选择检查、润色或起草。确认后，对应提示词会插入现有草稿最前面；取消则不改动草稿。界面文案跟随 DSH 语言；启用日文语言包时显示日文，其他未支持的语言显示英文。旧版 DSH 草稿含文件或命令引用时会阻止插入，以免丢失引用。
 
+<p align="center">
+  <img src="docs/images/panel-zh.png" width="330" alt="中文界面下的模式面板：检查、润色、起草，底部为取消与插入到输入框">
+  <img src="docs/images/panel-en.png" width="330" alt="英文界面下的同一面板：Check、Polish、Draft">
+</p>
+
+
 | 模式 | 输出 |
 | --- | --- |
 | `audit` | 问题与建议；询问能否提交时补充结论和未解决问题，原文件不变 |

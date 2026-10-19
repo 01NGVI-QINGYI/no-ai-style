@@ -16,6 +16,7 @@
     "cordis.patch.yml",
     "skills/",
     "locale/",
+    "docs/",
     "README.md",
     "README.zh-CN.md",
     "README.ja.md",
