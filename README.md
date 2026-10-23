@@ -1,123 +1,126 @@
-[English](README.md) | [中文](README.zh-CN.md) | [日本語](README.ja.md)
+<p align="center">
+  <img src="docs/images/panel-en.png" width="320" alt="The no ai style panel: Check, Polish, Draft">
+  <img src="docs/images/panel-zh.png" width="320" alt="The same panel in Chinese: 检查、润色、起草">
+</p>
 
-# No AI Style
+<h3 align="center">No AI Style</h3>
 
-**Natural Writing. Faithful Meaning.**
+<p align="center">
+  <b>Natural writing. Faithful meaning.</b><br>
+  <sub>An agent skill and DeepSeek Harness plugin for academic and professional writing</sub>
+</p>
 
-Skill v1.0 · DSH plugin v1.2.1 · English / 中文 / 日本語 · By [01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
+<p align="center">
+  <a href="https://github.com/01NGVI-QINGYI/no-ai-style/releases"><img alt="Latest release" src="https://img.shields.io/github/v/release/01NGVI-QINGYI/no-ai-style?style=flat-square&label=release&color=4c84f4"></a>
+  <a href="https://awesome-dsh-plugin.com/p/01NGVI-QINGYI/no-ai-style/"><img alt="DeepSeek Harness plugin market" src="https://img.shields.io/badge/DSH-plugin%20market-8b5cf6?style=flat-square"></a>
+  <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-2ea44f?style=flat-square"></a>
+  <img alt="English, Chinese, Japanese" src="https://img.shields.io/badge/EN%20%C2%B7%20%E4%B8%AD%20%C2%B7%20%E6%97%A5-555?style=flat-square">
+</p>
 
-An agent skill and installable DeepSeek Harness plugin for academic and professional writing.
-Remove mechanical phrasing and unnecessary padding while keeping facts, citations,
-uncertainty, and the author’s voice.
+<p align="center">
+  <a href="README.md">English</a> ·
+  <a href="README.zh-CN.md">中文</a> ·
+  <a href="README.ja.md">日本語</a>
+</p>
 
-**Before:** For clarity, it should be mentioned that the device supports two USB ports.
+---
 
-**After:** The device supports two USB ports.
+## What it does
 
-## Installation
+It removes the phrasing that makes a text read like a template — the throat-clearing, the stacked hedges, the self-justification — and leaves the claims alone. Facts, numbers, citations, methods and limitations survive as written, and the voice stays yours.
 
-Requires Node.js and npm.
+> **Before** — For clarity, it should be mentioned that the device supports two USB ports.
+>
+> **After** — The device supports two USB ports.
 
-**Codex**
+## The three modes
 
-```bash
-npx skills add 01NGVI-QINGYI/no-ai-style --global --agent codex
+| Mode | Name | What you get |
+| :-- | :-- | :-- |
+| `audit` | **Check** | Findings and suggestions only. Ask whether it is ready to submit and you also get a verdict and the unresolved issues. The source file is never touched. |
+| `revise` | **Polish** | An edited version within the scope you asked for. |
+| `compose` | **Draft** | A draft built from the notes and evidence you supplied. |
+
+Light editing is the default; ask for a stronger rewrite when you want one. The skill follows the language of the text and leaves passages that already work untouched.
+
+```text
+Use no-ai-style to check this.
+Use no-ai-style to polish it.
+Use no-ai-style to draft from these notes.
 ```
 
-**Deepseek Harness**
+Two markers keep it honest: `[EVIDENCE GAP]` flags a claim that needs a source and blocks a `ready` verdict, and `[INTERPRETATION FLAG]` flags a reading the author should confirm.
 
-In DSH Desktop, add `github:01NGVI-QINGYI/no-ai-style` under **Settings → Plugins**. From the CLI, install the plugin with:
+## In the composer
+
+The DSH plugin adds a ⭐ **no ai style** button to the input row. Pick a mode and the matching instruction lands at the front of your draft — in the interface language, Chinese, English or Japanese — with whatever you already typed left intact.
+
+Insertion is undoable. A draft that carries file or command references is refused rather than flattened, so those references survive.
+
+## Install
+
+### DeepSeek Harness
+
+From the app: **Settings → Plugins** → add `github:01NGVI-QINGYI/no-ai-style`, then restart.
+
+From the CLI — `--profile` is the profile you actually run, `web` for the `dsh web` build and `desktop` for the desktop app:
 
 ```bash
 dsh plugin --profile web add github:01NGVI-QINGYI/no-ai-style
 ```
 
-`--profile` is the profile you actually run: `web` for the `dsh web` build,
-`desktop` for the desktop app. The plugin registers its own skill provider, so
-the skill reaches every session in that profile without touching your project,
-custom, or user skill roots.
+The plugin registers its own skill provider, so the skill reaches every session in that profile without touching your project, custom or user skill roots.
 
-Restart DSH to load the plugin. To install it as a regular agent skill instead,
-run this in your Deepseek Harness project; it installs to `.agents/skills`:
+<details>
+<summary><b>Prefer the skill on its own, without the plugin?</b></summary>
+
+<br>
+
+Run this inside your DSH project; it installs to `.agents/skills`:
 
 ```bash
 npx skills add 01NGVI-QINGYI/no-ai-style --agent universal --copy
 ```
 
-**Claude Code**
+</details>
 
-```bash
-npx skills add 01NGVI-QINGYI/no-ai-style --global --agent claude-code
-```
-
-**Pi**
-
-```bash
-npx skills add 01NGVI-QINGYI/no-ai-style --global --agent pi
-```
-
-**Cursor**
-
-```bash
-npx skills add 01NGVI-QINGYI/no-ai-style --global --agent cursor
-```
-
-**Other agents**
+### Any other agent
 
 ```bash
 npx skills add 01NGVI-QINGYI/no-ai-style
 ```
 
-Choose your agent when prompted. Omit `--global` for a project installation.
+Choose your agent when prompted. Omit `--global` for a project install.
 
-Manual installation: copy `skills/no-ai-style/` into your agent’s skills directory.
+<details>
+<summary><b>Per-agent commands</b></summary>
 
-## Usage
+<br>
 
-Ask your agent in plain language. Paste the text or provide a file path:
+| Agent | Command |
+| :-- | :-- |
+| Codex | `npx skills add 01NGVI-QINGYI/no-ai-style --global --agent codex` |
+| Claude Code | `npx skills add 01NGVI-QINGYI/no-ai-style --global --agent claude-code` |
+| Cursor | `npx skills add 01NGVI-QINGYI/no-ai-style --global --agent cursor` |
+| Pi | `npx skills add 01NGVI-QINGYI/no-ai-style --global --agent pi` |
 
-```text
-Use no-ai-style to check.
-Use no-ai-style to edit.
-Use no-ai-style to draft.
-```
+To install by hand, copy `skills/no-ai-style/` into your agent's skills directory.
 
-Use “check” for a review or a submission-readiness check. If you ask whether it is ready to submit, the agent adds a verdict and any unresolved issues.
-
-In DSH, the composer carries a **no ai style** button (⭐ no ai style). Click it and choose Check, Polish, or Draft. Insert adds the localized instruction before your existing draft; Cancel leaves it unchanged. The UI follows DSH’s language; Japanese appears when a Japanese DSH locale is enabled, and other unsupported locales use English. On older DSH releases, insertion is blocked while file or command reference chips are present so they are not lost.
-
-<p align="center">
-  <img src="docs/images/panel-en.png" width="330" alt="The mode panel in the English interface: Check, Polish, Draft, with Cancel and Insert into input box">
-  <img src="docs/images/panel-zh.png" width="330" alt="The mode panel in the Chinese interface: 检查、润色、起草，底部为取消与插入到输入框">
-</p>
-
-
-| Mode | What you get |
-| --- | --- |
-| `audit` | Findings and suggestions; add a readiness verdict when requested; source files stay unchanged |
-| `revise` | Edited prose within the requested scope |
-| `compose` | A draft based on supplied notes and evidence |
-
-Light editing is the default. Request a stronger rewrite when needed.
-The skill follows the text’s language and keeps sound passages unchanged.
-Missing evidence is marked `[EVIDENCE GAP]`, which blocks `ready`;
-ambiguous interpretations are marked `[INTERPRETATION FLAG]` for author review.
+</details>
 
 ## Optional checks
 
-Python 3.9+, no external packages. Run from the repository root:
+Two local scripts, Python 3.9+, no dependencies. Run them from the repository root:
 
 ```bash
 python3 skills/no-ai-style/scripts/audit_prose.py draft.md --lang auto
 python3 skills/no-ai-style/scripts/compare_anchors.py before.md after.md --format json
 ```
-The scripts run locally and do not upload text. Findings need contextual review;
-unclosed comments or code fences produce warnings. Add `--strict` to return
-exit code 1 for missing-evidence markers or unclosed markup.
 
-The goal is readable, faithful prose, not AI-detector evasion.
-Detailed rules are in [SKILL.md](skills/no-ai-style/SKILL.md).
+Neither uploads text. Findings still need a human read: an unclosed comment or code fence produces a warning, and `--strict` turns missing-evidence markers or unclosed markup into exit code 1.
 
 ## License
 
-[MIT](LICENSE) · Project by [01NGVI-QINGYI](https://github.com/01NGVI-QINGYI).
+[MIT](LICENSE) · skill v1.0 · DSH plugin v1.2.2 · by [01NGVI-QINGYI](https://github.com/01NGVI-QINGYI)
+
+The goal is readable, faithful prose, not AI-detector evasion. Full rules are in [SKILL.md](skills/no-ai-style/SKILL.md).
