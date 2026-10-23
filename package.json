@@ -1,6 +1,6 @@
 {
   "name": "no-ai-style",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Academic and professional prose editing for DeepSeek Harness: a skill that removes mechanical AI phrasing, defensive hedging and filler while protecting claims, citations, statistics, methodology and limitations, plus a composer button that inserts one of its three modes into the input box.",
   "type": "module",
   "main": "index.js",
@@ -23,9 +23,6 @@
     "LICENSE"
   ],
   "dsh": {
-    "engines": {
-      "dsh": ">=0.1.5-rc.3 <0.3.0"
-    },
     "bundle": {
       "patch": "./cordis.patch.yml"
     },
