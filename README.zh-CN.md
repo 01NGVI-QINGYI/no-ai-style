@@ -73,42 +73,52 @@ dsh plugin --profile web add github:01NGVI-QINGYI/no-ai-style
 
 插件会注册独立的 skill provider，使技能直接对该 profile 下的所有会话生效，不会修改项目、自定义或用户级 skill 目录。
 
-<details>
-<summary><b>仅安装技能（不启用输入框插件）</b></summary>
 
-<br>
+### 仅安装 Skill（不安装 DSH 输入框插件）
 
-在 DeepSeek Harness 项目目录下运行以下命令，将技能安装至 `.agents/skills`：
+在 DSH 项目目录中运行，将独立技能安装到 `.agents/skills`：
 
 ```bash
 npx skills add 01NGVI-QINGYI/no-ai-style --agent universal --copy
 ```
 
-</details>
-
 ### 其他 Agent
+
+**交互式安装：运行命令后，按提示选择目标 Agent。**
 
 ```bash
 npx skills add 01NGVI-QINGYI/no-ai-style
 ```
 
-按提示选择目标 Agent。如需仅在当前项目内安装，可去掉下方命令中的 `--global`。
+**指定 Agent 安装：选择对应的命令即可。**
 
-<details>
-<summary><b>各 Agent 的独立安装命令</b></summary>
+以下命令默认**全局安装**；如需仅在当前项目安装，删除 `--global` 参数。
 
-<br>
+**Codex**
 
-| Agent | 命令 |
-| :-- | :-- |
-| Codex | `npx skills add 01NGVI-QINGYI/no-ai-style --global --agent codex` |
-| Claude Code | `npx skills add 01NGVI-QINGYI/no-ai-style --global --agent claude-code` |
-| Cursor | `npx skills add 01NGVI-QINGYI/no-ai-style --global --agent cursor` |
-| Pi | `npx skills add 01NGVI-QINGYI/no-ai-style --global --agent pi` |
+```bash
+npx skills add 01NGVI-QINGYI/no-ai-style --global --agent codex
+```
 
-手动安装：将 `skills/no-ai-style/` 复制到目标 Agent 的 skills 目录即可。
+**Claude Code**
 
-</details>
+```bash
+npx skills add 01NGVI-QINGYI/no-ai-style --global --agent claude-code
+```
+
+**Cursor**
+
+```bash
+npx skills add 01NGVI-QINGYI/no-ai-style --global --agent cursor
+```
+
+**Pi**
+
+```bash
+npx skills add 01NGVI-QINGYI/no-ai-style --global --agent pi
+```
+
+**手动安装：** 将 `skills/no-ai-style/` 复制到目标 Agent 的 skills 目录。
 
 ## 本地校验脚本
 
