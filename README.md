@@ -73,42 +73,52 @@ dsh plugin --profile web add github:01NGVI-QINGYI/no-ai-style
 
 The plugin registers its own skill provider, making the skill available across all sessions in that profile without modifying your project, custom, or user skill directories.
 
-<details>
-<summary><b>Install the skill only (without the composer plugin)</b></summary>
 
-<br>
+### Skill only (without the DSH plugin)
 
-Run this inside your DSH project directory to install into `.agents/skills`:
+Install the standalone skill into `.agents/skills` from your DSH project directory:
 
 ```bash
 npx skills add 01NGVI-QINGYI/no-ai-style --agent universal --copy
 ```
 
-</details>
-
 ### Other agents
+
+**Interactive setup — choose your agent when prompted:**
 
 ```bash
 npx skills add 01NGVI-QINGYI/no-ai-style
 ```
 
-Select your target agent when prompted. Omit `--global` in the commands below to install for the current project only.
+**Direct installation — choose one agent:**
 
-<details>
-<summary><b>Per-agent commands</b></summary>
+The commands below install globally. To install in the current project instead, remove `--global`.
 
-<br>
+**Codex**
 
-| Agent | Command |
-| :-- | :-- |
-| Codex | `npx skills add 01NGVI-QINGYI/no-ai-style --global --agent codex` |
-| Claude Code | `npx skills add 01NGVI-QINGYI/no-ai-style --global --agent claude-code` |
-| Cursor | `npx skills add 01NGVI-QINGYI/no-ai-style --global --agent cursor` |
-| Pi | `npx skills add 01NGVI-QINGYI/no-ai-style --global --agent pi` |
+```bash
+npx skills add 01NGVI-QINGYI/no-ai-style --global --agent codex
+```
 
-For a manual install, copy `skills/no-ai-style/` into your agent's skills directory.
+**Claude Code**
 
-</details>
+```bash
+npx skills add 01NGVI-QINGYI/no-ai-style --global --agent claude-code
+```
+
+**Cursor**
+
+```bash
+npx skills add 01NGVI-QINGYI/no-ai-style --global --agent cursor
+```
+
+**Pi**
+
+```bash
+npx skills add 01NGVI-QINGYI/no-ai-style --global --agent pi
+```
+
+**Manual installation:** Copy `skills/no-ai-style/` into your agent's skills directory.
 
 ## Local verification scripts
 
